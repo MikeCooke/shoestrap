@@ -3014,8 +3014,8 @@ class Less_Tree_Call{
 				}
 
 			} catch (Exception $e) {
-				throw Less_CompilerException('error evaluating function `' . $this->name . '` '.$e->getMessage().' index: '. $this->index);
-			}
+ 						throw new Less_CompilerException('error evaluating function `' . $this->name . '` '.$e->getMessage().' index: '. $this->index);
+ 						}
 		}
 
 		// 2.
@@ -6202,7 +6202,7 @@ class Less_CompilerException extends Exception {
 	private $filename;
 
 	public function __construct($message = null, $code = 0, Exception $previous = null, $filename = null) {
-		parent::__construct($message, $code);
+		parent::__construct($message, $code, $previous);
 		$this->filename = $filename;
 	}
 
